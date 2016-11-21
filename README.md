@@ -11,6 +11,8 @@ $ mockapi
 $ npm install
 $ node app
 ```
+open your brower enter 127.0.0.1:3001/test 
+if success, you can see the brower return  {'success':true}
 
 ###Example
 - edit the controller ./app/controller
@@ -22,7 +24,7 @@ var Random =Mock.Random;
 module.exports = {
 	test:function(req,res,next){
 		console.log('test');		
-		res.json({"success":false})
+		res.json({"success":true})
 	},
 	login:function(req,res,next){
 		logger.info('login');
@@ -43,9 +45,8 @@ var qaController = require('../controllers/qa.controller');
 module.exports = function (app) {
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));	
-	app.route('/test').post(qaController.test);
+	app.route('/test').get(qaController.test);
 	app.route('/login').post(qaController.login);
-	app.route('/user-info').get(qaController.userInfo);
   //在这里添加你的接口url
 }
 ```
