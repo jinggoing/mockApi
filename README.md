@@ -1,6 +1,13 @@
 # mockApi
 结合mockjs 模拟数据的一个可以在本地模拟服务器并调试的 express api接口服务器
 
+##Usage
+```
+$ cd /path/to/your/mockapi/project
+$ mockapi
+$ npm install
+$ node app
+```
 
 
 - 一个controller
