@@ -1,0 +1,21 @@
+{
+  "name": "mockApi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jinxiongh@126.com",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "log4js": "^0.6.38",
+    "mockjs": "^1.0.1-beta3",
+    "request": "^2.74.0"
+  }
+}
