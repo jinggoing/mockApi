@@ -2,6 +2,7 @@
 结合mockjs 模拟数据的一个可以在本地模拟服务器并调试的 express api接口服务器
 
 ##Usage
+###Starting
 ```
 $ cd /path/to/your/mockApi/project
 $ mockapi
@@ -9,8 +10,8 @@ $ npm install
 $ node app
 ```
 
-
-- 一个controller
+###Example
+- edit the controller ./app/controller
 ``` 
 var logger = require('../../config/log').logger;  
 var Mock = require('mockjs');
@@ -33,7 +34,7 @@ module.exports = {
   //在这里添加你的接口数据
 }
 ```
-- 一个route
+- edit route ./app/route
 ```
 var qaController = require('../controllers/qa.controller');
 
@@ -46,7 +47,7 @@ module.exports = function (app) {
   //在这里添加你的接口url
 }
 ```
-- 一个express服务
+- express service
 ```
 var log = require('./log');  
 var logger = log.logger
