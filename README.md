@@ -15,30 +15,14 @@ module.exports = {
 		res.json({"success":false})
 	},
 	login:function(req,res,next){
+		logger.info('login');
 		console.log('login');	
 		var data = Mock.mock({    
 		'token': Random.string( 15 )
 		})	
 		res.json(data);
-	},
-	userInfo:function(req,res,next){
-		logger.info('user-info');
-		console.log('user-info');
-		var data = Mock.mock({    
-			userId: Random.string( 15 ), 
-			userName: Random.string( 'lower', 6, 8 ), 
-			userType: 104, 
-			questLevel: 1, 
-			groups: ['aispeech']
-		})		
-		res.json({
-			userId: Random.string( 'lower', 15,15 ), 
-			userName: Random.cname(), 
-			userType: 104, 
-			questLevel: Random.natural( 1, 5 ), 
-			groups: ['aispeech']
-			})
 	}
+	
   //在这里添加你的接口数据
 }
 ```
@@ -65,12 +49,12 @@ module.exports = function(){
 	logger.info("app start");
 	
 	var app = express();
-	log.use(app);
-		//引入路由文件
+	log.use(app);		
 	app.use(express.static('./src'));
 	app.set('views', __dirname + '/src');
+	//引入路由文件
 	require('../app/routers/qa.route')(app);
-//404 处理
+	//404 处理
 	app.use(function(req ,res, next){
 		res.status(404);
 		try{
