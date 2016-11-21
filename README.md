@@ -3,7 +3,7 @@
 
 ##Usage
 ```
-$ cd /path/to/your/mockapi/project
+$ cd /path/to/your/mockApi/project
 $ mockapi
 $ npm install
 $ node app
