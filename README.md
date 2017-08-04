@@ -6,8 +6,7 @@ The mockjs official site: http://mockjs.com
 ##Usage
 ###Starting
 ```
-$ cd /path/to/your/mockApi/project
-$ mockapi
+$ cd ~/mockApi/
 $ npm install
 $ node app
 ```
@@ -15,7 +14,7 @@ open your brower enter 127.0.0.1:3001/user-info?username=hjx
 if success, you can see the brower return like {"code":0,"msg":"error","params":{"username":"123"}}
 
 ###Example
-- edit the controller ./app/controller
+- edit the controller ./app/controllers
 ``` 
 var logger = require('../../config/log').logger;  
 var mock = require('../mock/data')
@@ -41,7 +40,7 @@ module.exports = {
 }
 
 ```
-- edit route ./app/route
+- edit route ./app/routers
 ```
 var qaController = require('../controllers/qa.controller');
 
@@ -54,7 +53,7 @@ module.exports = function (app) {
   //在这里添加你的接口url
 }
 ```
-- edit mock ./app/data
+- edit mock ./app/mock
 ```
 // 使用 Mock
 var Mock = require('mockjs');
