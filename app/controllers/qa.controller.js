@@ -3,37 +3,23 @@ var request = require('request');
 var querystring = require('querystring');
 var urlmodule = require('url');
 var logger = require('../../config/log').logger;  
-var Mock = require('mockjs');
-var Random =Mock.Random;
+var mock = require('../mock/data')
 
 module.exports = {
-	test:function(req,res,next){
+	test(req,res,next){
 		console.log('test');		
-		res.json({"success":false})
+		res.json({"success":true})
 	},
-	login:function(req,res,next){
-		console.log('login');	
-		var data = Mock.mock({    
-		'token': Random.string( 15 )
-		})	
+	login(req,res,next){
+		var data = mock.login();
+		var params = req.query;  // 获取参数		
+		data.params = params;		
 		res.json(data);
 	},
-	userInfo:function(req,res,next){
-		logger.info('user-info');
-		console.log('user-info');
-		var data = Mock.mock({    
-			userId: Random.string( 15 ), 
-			userName: Random.string( 'lower', 6, 8 ), 
-			userType: 104, 
-			questLevel: 1, 
-			groups: ['aispeech']
-		})		
-		res.json({
-			userId: Random.string( 'lower', 15,15 ), 
-			userName: Random.cname(), 
-			userType: 104, 
-			questLevel: Random.natural( 1, 5 ), 
-			groups: ['aispeech']
-			})
+	userInfo(req,res,next){
+		var data = mock.userInfo();	
+		var params = req.query;  // 获取参数		
+		data.params = params;		
+		res.json(data)
 	}	
 }
